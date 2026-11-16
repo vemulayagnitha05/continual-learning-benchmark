@@ -207,6 +207,7 @@ with train_tab:
             st.caption("The model was trained on the selected real benchmark dataset. For best results, upload a centered, grayscale-like image resembling the dataset format.")
 
 
+
 with methodology:
     st.subheader("Experimental setup")
     st.markdown("""
@@ -244,5 +245,3 @@ with methodology:
         "They should not be interpreted as a comparison against every continual-learning "
         "algorithm or as a universal performance guarantee."
     )
-
-    st.warning("The saved benchmark results describe this implementation and experimental setup. They should not be interpreted as a comparison against every continual-learning algorithm or as a universal performance guarantee.")
