@@ -219,8 +219,13 @@ with methodology:
 - **Repetitions:** Five random seeds (0–4) for each method and dataset.
 """)
     st.markdown("#### Metric definitions")
-    st.latex(r"\\text{Final accuracy} = \\frac{1}{T}\\sum_{j=1}^{T} A_{T,j}")
-    st.write("Average final accuracy is the mean accuracy over all five tasks after the learning sequence.")
-    st.latex(r"\\text{Forgetting} = \\frac{1}{T-1}\\sum_{j=1}^{T-1}\\left(\\max_{t<T} A_{t,j} - A_{T,j}\\right)")
-    st.write("Average forgetting measures the loss in performance on earlier tasks between their best observed accuracy and their final accuracy.")
+   
+st.latex(r"\text{Final accuracy} = \frac{1}{T}\sum_{j=1}^{T} A_{T,j}")
+
+st.write("Average final accuracy is the mean accuracy over all five tasks after the learning sequence.")
+
+st.latex(r"\text{Forgetting} = \frac{1}{T-1}\sum_{j=1}^{T-1}\left(\max_{t<T} A_{t,j} - A_{T,j}\right)")
+
+st.write("Average forgetting measures the loss in performance on earlier tasks between their best observed accuracy and their final accuracy.")
+
     st.warning("The saved benchmark results describe this implementation and experimental setup. They should not be interpreted as a comparison against every continual-learning algorithm or as a universal performance guarantee.")
