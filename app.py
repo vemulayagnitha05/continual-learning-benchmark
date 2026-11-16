@@ -206,6 +206,7 @@ with train_tab:
             st.bar_chart(probability_frame.set_index("Class"))
             st.caption("The model was trained on the selected real benchmark dataset. For best results, upload a centered, grayscale-like image resembling the dataset format.")
 
+
 with methodology:
     st.subheader("Experimental setup")
     st.markdown("""
@@ -218,14 +219,30 @@ with methodology:
 - **Metrics:** Average final task accuracy and average forgetting.
 - **Repetitions:** Five random seeds (0–4) for each method and dataset.
 """)
+
     st.markdown("#### Metric definitions")
-   
-st.latex(r"\text{Final accuracy} = \frac{1}{T}\sum_{j=1}^{T} A_{T,j}")
 
-st.write("Average final accuracy is the mean accuracy over all five tasks after the learning sequence.")
+    st.latex(
+        r"\text{Final accuracy} = \frac{1}{T}\sum_{j=1}^{T} A_{T,j}"
+    )
 
-st.latex(r"\text{Forgetting} = \frac{1}{T-1}\sum_{j=1}^{T-1}\left(\max_{t<T} A_{t,j} - A_{T,j}\right)")
+    st.write(
+        "Average final accuracy is the mean accuracy over all five tasks after the learning sequence."
+    )
 
-st.write("Average forgetting measures the loss in performance on earlier tasks between their best observed accuracy and their final accuracy.")
+    st.latex(
+        r"\text{Forgetting} = \frac{1}{T-1}\sum_{j=1}^{T-1}"
+        r"\left(\max_{t<T} A_{t,j} - A_{T,j}\right)"
+    )
+
+    st.write(
+        "Average forgetting measures the loss in performance on earlier tasks between their best observed accuracy and their final accuracy."
+    )
+
+    st.warning(
+        "The saved benchmark results describe this implementation and experimental setup. "
+        "They should not be interpreted as a comparison against every continual-learning "
+        "algorithm or as a universal performance guarantee."
+    )
 
     st.warning("The saved benchmark results describe this implementation and experimental setup. They should not be interpreted as a comparison against every continual-learning algorithm or as a universal performance guarantee.")
